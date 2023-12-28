@@ -56,6 +56,7 @@ digitalformat2 = '{0:%H:%M:%S}'  # Format of the digital time on second screen
 # map_base = 'bcurley/cj712peyz0bwr2sqfndbggupb'  # Custom dark Mapbox style for land and water only (bottom layer that goes below weather radar)
 # map_overlay = 'bcurley/cj712r01c0bw62rm9isme3j8c'  # Custom Mapbox style for labels, roads, and borders only (top layer that goes above weather radar)
 map_base = 'mapbox/satellite-v9'  # Uncomment for standard Mapbox Satellite Streets style, and comment/remove the custom style
+map_base2 = 'mapbox/satellite-streets-v12'  # Uncomment for standard Mapbox Satellite Streets style, and comment/remove the custom style
 # map_base = 'mapbox/satellite-streets-v12'  # Uncomment for standard Mapbox Satellite Streets style, and comment/remove the custom style
 # map_base = 'mapbox/streets-v12'  # Uncomment for standard Mapbox Streets style, and comment/remove the custom style
 # map_base = 'mapbox/outdoors-v12'  # Uncomment for standard Mapbox Outdoors style, and comment/remove the custom style
@@ -175,7 +176,7 @@ Ltm_code_map = {
 # LatLng(44.9764016,-93.2486732),
 radar1 = {
     'center': radar_location,  # the center of your radar block
-    'zoom': 7,  # this is a maps zoom factor, bigger = smaller area
+    'zoom': 5,  # this is a maps zoom factor, bigger = smaller area
     'basemap': map_base,  # Mapbox style for standard map or custom map with land and water only
     'overlay': map_overlay,  # Mapbox style for labels, roads, and borders only
     'color': 8,  # rainviewer radar color scheme:
@@ -196,7 +197,7 @@ radar1 = {
 radar2 = {
     'center': radar_location,
     'zoom': 11,
-    'basemap': map_base,
+    'basemap': map_base2,
     'overlay': map_overlay,
     'color': 8,
     'smooth': 1,
