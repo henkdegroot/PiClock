@@ -68,7 +68,7 @@ map_overlay = 'bcurley/cj712r01c0bw62rm9isme3j8c'  # Custom Mapbox style for lab
 # Standard Mapbox maps will look like 'mapbox/streets-v12'
 # User created Mapbox maps will look like 'user-name/map-identifier'
 
-metric = 0  # 0 = English, 1 = Metric
+metric = 1  # 0 = English, 1 = Metric
 radar_refresh = 10  # minutes
 weather_refresh = 30  # minutes
 # Wind in degrees instead of cardinal 0 = cardinal, 1 = degrees
@@ -100,7 +100,7 @@ METAR = ''
 # Language specific wording
 # OpenWeather Language code
 #  (https://openweathermap.org/current#multi)
-Language = 'EN'
+Language = 'NL'
 
 # The Python Locale for date/time (locale.setlocale)
 #  '' for default Pi Setting
