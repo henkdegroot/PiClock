@@ -2078,7 +2078,7 @@ class MyMain(QtWidgets.QWidget):
         global weatherplayer, lastkeytime
         if isinstance(event, QtGui.QKeyEvent):
             # print(event.key(), format(event.key(), '08x'))
-            if event.key() == Qt.Key_F4:
+            if event.key() == Qt.Key_Escape:
                 myquit()
             if event.key() == Qt.Key_F2:
                 if time.time() > lastkeytime:
