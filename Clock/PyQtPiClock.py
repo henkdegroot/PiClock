@@ -1357,10 +1357,10 @@ def getwx_owm():
     # older OWM API keys work with legacy One Call API 2.5
     # newer keys do not work with One Call API 2.5, and require additional subscription to "One Call by Call" plan
     if owmonecall:
-        wxurl = 'https://api.openweathermap.org/data/2.5/onecall?appid=' + \
+        wxurl = 'https://api.openweathermap.org/data/3.0/onecall?appid=' + \
                 ApiKeys.owmapi
     else:
-        wxurl = 'https://api.openweathermap.org/data/2.5/forecast?appid=' + \
+        wxurl = 'https://api.openweathermap.org/data/3.0/forecast?appid=' + \
                 ApiKeys.owmapi
 
     wxurl += "&lat=" + str(Config.location.lat) + \
@@ -1384,7 +1384,7 @@ def getwx_owm():
         wxreplyf.finished.connect(wxfinished_owm_forecast)
 
     if not hasMetar and not owmonecall:
-        wxurl = 'https://api.openweathermap.org/data/2.5/weather?appid=' + \
+        wxurl = 'https://api.openweathermap.org/data/3.0/weather?appid=' + \
                 ApiKeys.owmapi
         wxurl += "&lat=" + str(Config.location.lat) + \
                  '&lon=' + str(Config.location.lng)
