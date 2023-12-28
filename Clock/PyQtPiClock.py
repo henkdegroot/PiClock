@@ -355,15 +355,15 @@ def phase(f):
 def bearing(f):
     wd = 'N'
     if f > 22.5:
-        wd = 'NE'
+        wd = 'NO'
     if f > 67.5:
-        wd = 'E'
+        wd = 'O'
     if f > 112.5:
-        wd = 'SE'
+        wd = 'ZO'
     if f > 157.5:
-        wd = 'S'
+        wd = 'Z'
     if f > 202.5:
-        wd = 'SW'
+        wd = 'ZW'
     if f > 247.5:
         wd = 'W'
     if f > 292.5:
@@ -458,9 +458,9 @@ def wxfinished_owm_onecall():
         if Config.metric:
             temper.setText('%.1f' % (tempf2tempc(f['temp'])) + u'°C')
             temper2.setText('%.1f' % (tempf2tempc(f['temp'])) + u'°C')
-            w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind_speed'])) + 'km/h')
+            w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind_speed'])) + 'km/u')
             if 'wind_gust' in f:
-                w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind_gust'])) + 'km/h')
+                w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind_gust'])) + 'km/u')
             feelslike.setText(Config.LFeelslike + '%.1f' % (tempf2tempc(f['feels_like'])) + u'°C')
         else:
             temper.setText('%.1f' % (f['temp']) + u'°F')
@@ -494,7 +494,7 @@ def wxfinished_owm_onecall():
             Qt.SmoothTransformation))
         wx = fl.findChild(QtWidgets.QLabel, 'wx')
         day = fl.findChild(QtWidgets.QLabel, 'day')
-        day.setText('{0:%A %I:%M%p}'.format(dt))
+        day.setText('{0:%A %H:%M}'.format(dt))
         s = ''
         pop = 0
         ptype = ''
@@ -513,10 +513,10 @@ def wxfinished_owm_onecall():
         if Config.metric:
             if ptype == 'snow':
                 if paccum > 0.1:
-                    s += Config.LSnow + '%.1f' % paccum + 'mm/hr '
+                    s += Config.LSnow + '%.1f' % paccum + 'mm/u '
             else:
                 if paccum > 0.1:
-                    s += Config.LRain + '%.1f' % paccum + 'mm/hr '
+                    s += Config.LRain + '%.1f' % paccum + 'mm/u '
             s += '%.0f' % tempf2tempc(f['temp']) + u'°C'
         else:
             if ptype == 'snow':
@@ -550,7 +550,7 @@ def wxfinished_owm_onecall():
             Qt.SmoothTransformation))
         wx = fl.findChild(QtWidgets.QLabel, 'wx')
         day = fl.findChild(QtWidgets.QLabel, 'day')
-        day.setText('{0:%A %m/%d}'.format(dt))
+        day.setText('{0:%A %d-%m}'.format(dt))
         s = ''
         pop = 0
         ptype = ''
@@ -632,9 +632,9 @@ def wxfinished_owm_current():
     if Config.metric:
         temper.setText('%.1f' % (tempf2tempc(f['main']['temp'])) + u'°C')
         temper2.setText('%.1f' % (tempf2tempc(f['main']['temp'])) + u'°C')
-        w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind']['speed'])) + 'km/h')
+        w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind']['speed'])) + 'km/u')
         if 'gust' in f['wind']:
-            w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind']['gust'])) + 'km/h')
+            w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind']['gust'])) + 'km/u')
         feelslike.setText(Config.LFeelslike + '%.1f' % (tempf2tempc(f['main']['feels_like'])) + u'°C')
     else:
         temper.setText('%.1f' % (f['main']['temp']) + u'°F')
@@ -691,7 +691,7 @@ def wxfinished_owm_forecast():
             Qt.SmoothTransformation))
         wx = fl.findChild(QtWidgets.QLabel, "wx")
         day = fl.findChild(QtWidgets.QLabel, "day")
-        day.setText("{0:%A %I:%M%p}".format(dt))
+        day.setText("{0:%A %H:%M}".format(dt))
         f2 = f['main']
         s = ''
         pop = 0
@@ -713,10 +713,10 @@ def wxfinished_owm_forecast():
         if Config.metric:
             if ptype == 'snow':
                 if paccum > 0.1:
-                    s += Config.LSnow + '%.1f' % paccum + 'mm/hr '
+                    s += Config.LSnow + '%.1f' % paccum + 'mm/u '
             else:
                 if paccum > 0.1:
-                    s += Config.LRain + '%.1f' % paccum + 'mm/hr '
+                    s += Config.LRain + '%.1f' % paccum + 'mm/u '
             s += '%.0f' % tempf2tempc(f2['temp']) + u'°C'
         else:
             if ptype == 'snow':
@@ -756,7 +756,7 @@ def wxfinished_owm_forecast():
             if dx6am <= dt <= dx6amnext:
                 if setday:
                     setday = False
-                    day.setText("{0:%A %m/%d}".format(dt))
+                    day.setText("{0:%A %d-%m}".format(dt))
                 pop = 0.0
                 if 'pop' in f:
                     pop = float(f['pop']) * 100.0
@@ -925,9 +925,9 @@ def wxfinished_tm_current():
         temper.setText('%.1f' % (tempf2tempc(f['values']['temperature'])) + u'°C')
         temper2.setText('%.1f' % (tempf2tempc(f['values']['temperature'])) + u'°C')
         wind.setText(Config.LWind + wd + ' ' +
-                     '%.1f' % (mph2kph(f['values']['windSpeed'])) + 'km/h' +
+                     '%.1f' % (mph2kph(f['values']['windSpeed'])) + 'km/u' +
                      Config.Lgusting +
-                     '%.1f' % (mph2kph(f['values']['windGust'])) + 'km/h')
+                     '%.1f' % (mph2kph(f['values']['windGust'])) + 'km/u')
         feelslike.setText(Config.LFeelslike +
                           '%.1f' % (tempf2tempc(f['values']['temperatureApparent'])) + u'°C')
     else:
@@ -999,7 +999,7 @@ def wxfinished_tm_hourly():
             Qt.SmoothTransformation))
         wx = fl.findChild(QtWidgets.QLabel, 'wx')
         day = fl.findChild(QtWidgets.QLabel, 'day')
-        day.setText('{0:%A %I:%M%p}'.format(dt))
+        day.setText('{0:%A %H:%M}'.format(dt))
         s = ''
         pop = float(f['values']['precipitationProbability'])
         ptype = f['values']['precipitationType']
@@ -1012,10 +1012,10 @@ def wxfinished_tm_hourly():
         if Config.metric:
             if ptype == 2:
                 if paccum > 0.1:
-                    s += Config.LSnow + '%.1f' % inches2mm(paccum) + 'mm/hr '
+                    s += Config.LSnow + '%.1f' % inches2mm(paccum) + 'mm/u '
             else:
                 if paccum > 0.1:
-                    s += Config.LRain + '%.1f' % inches2mm(paccum) + 'mm/hr '
+                    s += Config.LRain + '%.1f' % inches2mm(paccum) + 'mm/u '
             s += '%.0f' % tempf2tempc(f['values']['temperature']) + u'°C'
         else:
             if ptype == 2:
@@ -1066,7 +1066,7 @@ def wxfinished_tm_daily():
                 Qt.SmoothTransformation))
             wx = fl.findChild(QtWidgets.QLabel, 'wx')
             day = fl.findChild(QtWidgets.QLabel, 'day')
-            day.setText('{0:%A %m/%d}'.format(dateutil.parser.parse(f['startTime']).astimezone(tzlocal.get_localzone())))
+            day.setText('{0:%A %d-%m}'.format(dateutil.parser.parse(f['startTime']).astimezone(tzlocal.get_localzone())))
             s = ''
             pop = float(f['values']['precipitationProbability'])
             ptype = ''
@@ -1111,10 +1111,10 @@ def wxfinished_tm_daily():
             if Config.metric:
                 if ptype == 'snow':
                     if paccum > 0.1:
-                        s += Config.LSnow + '%.1f' % inches2mm(paccum) + 'mm/hr '
+                        s += Config.LSnow + '%.1f' % inches2mm(paccum) + 'mm/u '
                 else:
                     if paccum > 0.1:
-                        s += Config.LRain + '%.1f' % inches2mm(paccum) + 'mm/hr '
+                        s += Config.LRain + '%.1f' % inches2mm(paccum) + 'mm/u '
                 s += '%.0f' % tempf2tempc(f['values']['temperatureMax']) + '/' + \
                      '%.0f' % tempf2tempc(f['values']['temperatureMin']) + u'°C'
             else:
@@ -1294,9 +1294,9 @@ def wxfinished_metar():
     if Config.metric:
         temper.setText('%.1f' % (f.temp.value('C')) + u'°C')
         temper2.setText('%.1f' % (f.temp.value('C')) + u'°C')
-        ws = (Config.LWind + wd + ' ' + '%.1f' % (f.wind_speed.value('KMH')) + 'km/h')
+        ws = (Config.LWind + wd + ' ' + '%.1f' % (f.wind_speed.value('KMH')) + 'km/u')
         if f.wind_gust:
-            ws += (Config.Lgusting + '%.1f' % (f.wind_gust.value('KMH')) + 'km/h')
+            ws += (Config.Lgusting + '%.1f' % (f.wind_gust.value('KMH')) + 'km/u')
         feelslike.setText(Config.LFeelslike + ('%.1f' % (tempf2tempc(feels_like(f))) + u'°C'))
     else:
         temper.setText('%.1f' % (f.temp.value('F')) + u'°F')

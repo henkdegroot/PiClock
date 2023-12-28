@@ -15,8 +15,8 @@ radar_location = LatLng(primary_coordinates[0], primary_coordinates[1])
 
 noaastream = ''
 background = 'images/clockbackground-chris.png'
-squares1 = 'images/squares1-henk.png'
-squares2 = 'images/squares2-henk.png'
+squares1 = 'images/squares1-kevin.png'
+squares2 = 'images/squares2-kevin.png'
 icons = 'icons-lightblue'
 textcolor = '#bef'
 clockface = 'images/clockface3.png'
@@ -73,7 +73,7 @@ map_overlay = ''  # Uncomment and leave blank if using standard Mapbox style, an
 # User created Mapbox maps will look like 'user-name/map-identifier'
 
 metric = 1  # 0 = English, 1 = Metric
-radar_refresh = 15  # minutes
+radar_refresh = 10  # minutes
 weather_refresh = 30  # minutes
 # Wind in degrees instead of cardinal 0 = cardinal, 1 = degrees
 wind_degrees = 0
@@ -189,7 +189,7 @@ radar1 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-home',  # optional image from the markers folder
+            'image': 'teardrop-dot',  # optional image from the markers folder
         },  # dangling comma is on purpose.
     )
 }
@@ -208,7 +208,7 @@ radar2 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-home',
+            'image': 'teardrop-dot',
         },
     )
 }
@@ -227,7 +227,7 @@ radar3 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-home',
+            'image': 'teardrop-dot',
         },
     )
 }
@@ -246,7 +246,7 @@ radar4 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-home',
+            'image': 'teardrop-dot',
         },
     )
 }
