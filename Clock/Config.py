@@ -53,14 +53,14 @@ digitalformat2 = '{0:%H:%M:%S}'  # Format of the digital time on second screen
 
 # Mapbox map styles, need API key (mbapi in ApiKeys.py)
 # If no Mapbox API is set, Google Maps are used
-map_base = 'bcurley/cj712peyz0bwr2sqfndbggupb'  # Custom dark Mapbox style for land and water only (bottom layer that goes below weather radar)
-map_overlay = 'bcurley/cj712r01c0bw62rm9isme3j8c'  # Custom Mapbox style for labels, roads, and borders only (top layer that goes above weather radar)
-# map_base = 'mapbox/satellite-streets-v12'  # Uncomment for standard Mapbox Satellite Streets style, and comment/remove the custom style
+# map_base = 'bcurley/cj712peyz0bwr2sqfndbggupb'  # Custom dark Mapbox style for land and water only (bottom layer that goes below weather radar)
+# map_overlay = 'bcurley/cj712r01c0bw62rm9isme3j8c'  # Custom Mapbox style for labels, roads, and borders only (top layer that goes above weather radar)
+map_base = 'mapbox/satellite-streets-v12'  # Uncomment for standard Mapbox Satellite Streets style, and comment/remove the custom style
 # map_base = 'mapbox/streets-v12'  # Uncomment for standard Mapbox Streets style, and comment/remove the custom style
 # map_base = 'mapbox/outdoors-v12'  # Uncomment for standard Mapbox Outdoors style, and comment/remove the custom style
 # map_base = 'mapbox/dark-v11'  # Uncomment for standard Mapbox Dark style, and comment/remove the custom style
 # map_base = 'mapbox/cj5l80zrp29942rmtg0zctjto'  # Mapbox calls this map style 'Decimal'
-# map_overlay = ''  # Uncomment and leave blank if using standard Mapbox style, and comment/remove the custom style
+map_overlay = ''  # Uncomment and leave blank if using standard Mapbox style, and comment/remove the custom style
 
 # For more Mapbox styles, see https://docs.mapbox.com/api/maps/styles/
 # To create custom Mapbox styles, sign-in at https://studio.mapbox.com/
