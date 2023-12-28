@@ -4,7 +4,6 @@ __pycache__/
 
 # Configuration things to not commit API keys/location
 Clock/Api-Keys.py
-Clock/Config.py
 
 # From testing
 Clock/log.count
@@ -27,6 +26,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+venv/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
