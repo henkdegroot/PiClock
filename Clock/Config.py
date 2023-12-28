@@ -14,15 +14,15 @@ location = LatLng(primary_coordinates[0], primary_coordinates[1])
 radar_location = LatLng(primary_coordinates[0], primary_coordinates[1])
 
 noaastream = ''
-background = 'images/clockbackground-jean.png'
-squares1 = 'images/squares1-jean.png'
-squares2 = 'images/squares2-jean.png'
-icons = 'icons-darkblue'
+background = 'images/clockbackground-chris.png'
+squares1 = 'images/squares1-kevin.png'
+squares2 = 'images/squares2-kevin.png'
+icons = 'icons-lightblue'
 textcolor = '#bef'
-clockface = 'images/clockface3-darkblue.png'
-hourhand = 'images/hourhand-darkblue.png'
-minhand = 'images/minhand-darkblue.png'
-sechand = 'images/sechand-darkblue.png'
+clockface = 'images/clockface3.png'
+hourhand = 'images/hourhand.png'
+minhand = 'images/minhand.png'
+sechand = 'images/sechand.png'
 
 # SlideShow
 useslideshow = 0  # 1 to enable, 0 to disable
