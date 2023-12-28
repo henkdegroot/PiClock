@@ -15,8 +15,8 @@ radar_location = LatLng(primary_coordinates[0], primary_coordinates[1])
 
 noaastream = ''
 background = 'images/clockbackground-chris.png'
-squares1 = 'images/squares1-kevin.png'
-squares2 = 'images/squares2-kevin.png'
+squares1 = 'images/squares1-henk.png'
+squares2 = 'images/squares2-henk.png'
 icons = 'icons-lightblue'
 textcolor = '#bef'
 clockface = 'images/clockface3.png'
@@ -189,7 +189,7 @@ radar1 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-dot',  # optional image from the markers folder
+            'image': 'teardrop-home',  # optional image from the markers folder
         },  # dangling comma is on purpose.
     )
 }
@@ -208,7 +208,7 @@ radar2 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-dot',
+            'image': 'teardrop-home',
         },
     )
 }
@@ -227,7 +227,7 @@ radar3 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-dot',
+            'image': 'teardrop-home',
         },
     )
 }
@@ -246,7 +246,7 @@ radar4 = {
             'location': radar_location,
             'color': 'red',
             'size': 'small',
-            'image': 'teardrop-dot',
+            'image': 'teardrop-home',
         },
     )
 }
