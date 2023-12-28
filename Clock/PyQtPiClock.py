@@ -756,7 +756,7 @@ def wxfinished_owm_forecast():
             if dx6am <= dt <= dx6amnext:
                 if setday:
                     setday = False
-                    day.setText("{0:%A %m/%d}".format(dt))
+                    day.setText("{0:%A %d-%m}".format(dt))
                 pop = 0.0
                 if 'pop' in f:
                     pop = float(f['pop']) * 100.0
@@ -1066,7 +1066,7 @@ def wxfinished_tm_daily():
                 Qt.SmoothTransformation))
             wx = fl.findChild(QtWidgets.QLabel, 'wx')
             day = fl.findChild(QtWidgets.QLabel, 'day')
-            day.setText('{0:%A %m/%d}'.format(dateutil.parser.parse(f['startTime']).astimezone(tzlocal.get_localzone())))
+            day.setText('{0:%A %d-%m}'.format(dateutil.parser.parse(f['startTime']).astimezone(tzlocal.get_localzone())))
             s = ''
             pop = float(f['values']['precipitationProbability'])
             ptype = ''
