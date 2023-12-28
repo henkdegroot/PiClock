@@ -73,7 +73,7 @@ map_overlay = ''  # Uncomment and leave blank if using standard Mapbox style, an
 # User created Mapbox maps will look like 'user-name/map-identifier'
 
 metric = 1  # 0 = English, 1 = Metric
-radar_refresh = 10  # minutes
+radar_refresh = 15  # minutes
 weather_refresh = 30  # minutes
 # Wind in degrees instead of cardinal 0 = cardinal, 1 = degrees
 wind_degrees = 0
