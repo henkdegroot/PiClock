@@ -25,7 +25,7 @@ minhand = 'images/minhand.png'
 sechand = 'images/sechand.png'
 
 # SlideShow
-useslideshow = 1  # 1 to enable, 0 to disable
+useslideshow = 0  # 1 to enable, 0 to disable
 slide_time = 305  # in seconds, 3600 per hour
 slides = 'images/slideshow'  # the path to your local images
 slide_bg_color = '#000'  # https://htmlcolorcodes.com/  black #000
@@ -36,7 +36,7 @@ digital = 1  # 1 = Digital Clock, 0 = Analog Clock
 digitalcolor = '#50CBEB'
 #digitalformat = '{0:%I:%M\n%S %p}'  # Format of the digital clock face
 digitalformat = '{0:%H:%M}'  # my version
-digitalsize = 300
+digitalsize = 275
 
 # The above example shows in this way:
 #  https://github.com/n0bel/PiClock/blob/master/Documentation/Digital%20Clock%20v1.jpg
