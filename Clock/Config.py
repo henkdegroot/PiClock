@@ -176,10 +176,10 @@ Ltm_code_map = {
 # LatLng(44.9764016,-93.2486732),
 radar1 = {
     'center': radar_location,  # the center of your radar block
-    'zoom': 5,  # this is a maps zoom factor, bigger = smaller area
+    'zoom': 6,  # this is a maps zoom factor, bigger = smaller area
     'basemap': map_base,  # Mapbox style for standard map or custom map with land and water only
     'overlay': map_overlay,  # Mapbox style for labels, roads, and borders only
-    'color': 8,  # rainviewer radar color scheme:
+    'color': 2,  # rainviewer radar color scheme:
     # https://www.rainviewer.com/api/color-schemes.html
     'smooth': 1,  # rainviewer radar smoothing
     'snow': 1,  # rainviewer radar show snow as different color
@@ -199,7 +199,7 @@ radar2 = {
     'zoom': 11,
     'basemap': map_base2,
     'overlay': map_overlay,
-    'color': 8,
+    'color': 2,
     'smooth': 1,
     'snow': 1,
     'markers': (
@@ -218,7 +218,7 @@ radar3 = {
     'zoom': 7,
     'basemap': map_base,
     'overlay': map_overlay,
-    'color': 8,
+    'color': 2,
     'smooth': 1,
     'snow': 1,
     'markers': (
@@ -237,7 +237,7 @@ radar4 = {
     'zoom': 11,
     'basemap': map_base,
     'overlay': map_overlay,
-    'color': 8,
+    'color': 2,
     'smooth': 1,
     'snow': 1,
     'markers': (
