@@ -701,10 +701,10 @@ def wxfinished_owm_forecast():
             pop = float(f['pop']) * 100.0
         if 'snow' in f:
             ptype = 'snow'
-            paccum = float(f['snow']['3u'])
+            paccum = float(f['snow']['3h'])
         if 'rain' in f:
             ptype = 'rain'
-            paccum = float(f['rain']['3u'])
+            paccum = float(f['rain']['3h'])
 
         paccum = paccum / 3.0
 
@@ -761,10 +761,10 @@ def wxfinished_owm_forecast():
                 if 'pop' in f:
                     pop = float(f['pop']) * 100.0
                 if 'rain' in f:
-                    paccum = float(f['rain']['3u'])
+                    paccum = float(f['rain']['3h'])
                     rpaccum += paccum
                 if 'snow' in f:
-                    paccum = float(f['snow']['3u'])
+                    paccum = float(f['snow']['3h'])
                     spaccum += paccum
                 if pop > xpop:
                     xpop = pop
