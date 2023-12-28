@@ -36,7 +36,7 @@ digital = 1  # 1 = Digital Clock, 0 = Analog Clock
 digitalcolor = '#50CBEB'
 #digitalformat = '{0:%I:%M\n%S %p}'  # Format of the digital clock face
 digitalformat = '{0:%H:%M}'  # my version
-digitalsize = 275
+digitalsize = 250
 
 # The above example shows in this way:
 #  https://github.com/n0bel/PiClock/blob/master/Documentation/Digital%20Clock%20v1.jpg
