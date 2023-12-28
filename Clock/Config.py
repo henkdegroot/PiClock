@@ -30,12 +30,13 @@ slide_time = 305  # in seconds, 3600 per hour
 slides = 'images/slideshow'  # the path to your local images
 slide_bg_color = '#000'  # https://htmlcolorcodes.com/  black #000
 
-digital = 0  # 1 = Digital Clock, 0 = Analog Clock
+digital = 1  # 1 = Digital Clock, 0 = Analog Clock
 
 # Goes with light blue config (like the default one)
 digitalcolor = '#50CBEB'
-digitalformat = '{0:%I:%M\n%S %p}'  # Format of the digital clock face
-digitalsize = 200
+#digitalformat = '{0:%I:%M\n%S %p}'  # Format of the digital clock face
+digitalformat = '{0:%H:%M}'  # my version
+digitalsize = 250
 
 # The above example shows in this way:
 #  https://github.com/n0bel/PiClock/blob/master/Documentation/Digital%20Clock%20v1.jpg
@@ -111,27 +112,27 @@ Language = 'NL'
 DateLocale = ''
 
 # Language specific wording
-LPressure = 'Pressure '
-LHumidity = 'Humidity '
+LPressure = 'Druk '
+LHumidity = 'Vochtigheid '
 LWind = 'Wind '
-Lgusting = ' gust '
-LFeelslike = 'Feels like '
-LPrecip1hr = ' Precip 1hr: '
-LToday = 'Today: '
-LSunRise = 'Sun Rise: '
-LSet = ' Set: '
-LMoonPhase = ' Moon: '
-LInsideTemp = 'Inside Temp '
-LRain = ' Rain: '
-LSnow = ' Snow: '
-Lmoon1 = 'New Moon'
-Lmoon2 = 'Waxing Crescent'
-Lmoon3 = 'First Quarter'
-Lmoon4 = 'Waxing Gibbous'
-Lmoon5 = 'Full Moon'
-Lmoon6 = 'Waning Gibbous'
-Lmoon7 = 'Third Quarter'
-Lmoon8 = 'Waning Crescent'
+Lgusting = ' windvlaag '
+LFeelslike = 'Voelt als '
+LPrecip1hr = ' Neerslag 1u: '
+LToday = 'Vandaag: '
+LSunRise = 'Zon op: '
+LSet = ' onder: '
+LMoonPhase = ' Maan: '
+LInsideTemp = 'Binnen temp '
+LRain = ' Regen: '
+LSnow = ' Sneeuw: '
+Lmoon1 = 'Volle maan'
+Lmoon2 = 'Wassende halve maan'
+Lmoon3 = 'Eerste kwartier'
+Lmoon4 = 'Wassende maan'
+Lmoon5 = 'Volle maan'
+Lmoon6 = 'Afnemende maan'
+Lmoon7 = 'Laatste kwartier'
+Lmoon8 = 'Afnemende halve maan'
 
 # Language specific terms for Tomorrow.io weather conditions
 Ltm_code_map = {
