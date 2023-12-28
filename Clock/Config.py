@@ -13,16 +13,16 @@ location = LatLng(primary_coordinates[0], primary_coordinates[1])
 # Default radar location
 radar_location = LatLng(primary_coordinates[0], primary_coordinates[1])
 
-noaastream = 'http://www.urberg.net:8000/tim273/edina'
-background = 'images/clockbackground-kevin.png'
-squares1 = 'images/squares1-kevin.png'
-squares2 = 'images/squares2-kevin.png'
-icons = 'icons-lightblue'
+noaastream = ''
+background = 'images/clockbackground-jean.png'
+squares1 = 'images/squares1-jean.png'
+squares2 = 'images/squares2-jean.png'
+icons = 'icons-darkblue'
 textcolor = '#bef'
-clockface = 'images/clockface3.png'
-hourhand = 'images/hourhand.png'
-minhand = 'images/minhand.png'
-sechand = 'images/sechand.png'
+clockface = 'images/clockface3-darkblue.png'
+hourhand = 'images/hourhand-darkblue.png'
+minhand = 'images/minhand-darkblue.png'
+sechand = 'images/sechand-darkblue.png'
 
 # SlideShow
 useslideshow = 0  # 1 to enable, 0 to disable
