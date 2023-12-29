@@ -360,9 +360,9 @@ def bearing(f):
         wd = 'NO'
     if f > 67.5:
         wd = 'ONO'
-     if f > 90:
+    if f > 90:
         wd = 'O'
-   if f > 112.5:
+    if f > 112.5:
         wd = 'OZO'
     if f > 135:
         wd = 'ZO'
