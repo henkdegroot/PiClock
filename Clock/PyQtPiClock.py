@@ -464,8 +464,8 @@ def wxfinished_owm_onecall():
             wxicon.height(),
             Qt.IgnoreAspectRatio,
             Qt.SmoothTransformation))
-        wxdesc.setText(f['weather'][0]['description'].title())
-        wxdesc2.setText(f['weather'][0]['description'].title())
+        wxdesc.setText(f['weather'][0]['description'].capitalize())
+        wxdesc2.setText(f['weather'][0]['description'].capitalize())
 
         if Config.wind_degrees:
             wd = str(f['wind_deg']) + u'°'
@@ -545,7 +545,7 @@ def wxfinished_owm_onecall():
             s += '%.0f' % (f['temp']) + u'°F'
 
         wx.setStyleSheet('#wx { font-size: ' + str(int(19 * xscale * Config.fontmult)) + 'px; }')
-        wx.setText(f['weather'][0]['description'].title() + '\n' + s)
+        wx.setText(f['weather'][0]['description'].capitalize() + '\n' + s)
 
     dt = datetime.datetime.fromtimestamp(int(wxdata['daily'][0]['dt'])).astimezone(tzlocal.get_localzone())
     date_offset = 0
@@ -603,7 +603,7 @@ def wxfinished_owm_onecall():
                  '%.0f' % f['temp']['min'] + u'°F'
 
         wx.setStyleSheet('#wx { font-size: ' + str(int(19 * xscale * Config.fontmult)) + 'px; }')
-        wx.setText(f['weather'][0]['description'].title() + '\n' + s)
+        wx.setText(f['weather'][0]['description'].capitalize() + '\n' + s)
 
 
 def wxfinished_owm_current():
@@ -638,8 +638,8 @@ def wxfinished_owm_current():
         wxicon.height(),
         Qt.IgnoreAspectRatio,
         Qt.SmoothTransformation))
-    wxdesc.setText(f['weather'][0]['description'].title())
-    wxdesc2.setText(f['weather'][0]['description'].title())
+    wxdesc.setText(f['weather'][0]['description'].capitalize())
+    wxdesc2.setText(f['weather'][0]['description'].capitalize())
 
     if Config.wind_degrees:
         wd = str(f['wind']['deg']) + u'°'
@@ -745,7 +745,7 @@ def wxfinished_owm_forecast():
             s += '%.0f' % (f2['temp']) + u'°F'
 
         wx.setStyleSheet("#wx { font-size: " + str(int(19 * xscale * Config.fontmult)) + "px; }")
-        wx.setText(f['weather'][0]['description'].title() + "\n" + s)
+        wx.setText(f['weather'][0]['description'].capitalize() + "\n" + s)
 
     # find 6am in the current timezone (weather day is 6am to 6am next day)
     dx = datetime.datetime.now(tz=tzlatlng)
@@ -791,7 +791,7 @@ def wxfinished_owm_forecast():
                 if tx < xmintemp:
                     xmintemp = tx
                 has_forecast = True
-                ldesc.append(f['weather'][0]['description'].title())
+                ldesc.append(f['weather'][0]['description'].capitalize())
                 licon.append(f['weather'][0]['icon'])
 
         if xpop > 0.1:
