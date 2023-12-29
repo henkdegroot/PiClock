@@ -307,8 +307,36 @@ def tempfinished():
     temp.setText(s)
 
 
-def mph2kph(f):
-    return f * 1.609  # speed MPH to km/h
+def mps2kph(mps):
+    return mps * 3.6  # speed m/s to km/h
+
+def mps2bft(mps):
+    if mps < 0.3:
+        return 0
+    elif 0.3 <= mps < 1.6:
+        return 1
+    elif 1.6 <= mps < 3.4:
+        return 2
+    elif 3.4 <= mps < 5.5:
+        return 3
+    elif 5.5 <= mps < 8.0:
+        return 4
+    elif 8.0 <= mps < 10.8:
+        return 5
+    elif 10.8 <= mps < 13.9:
+        return 6
+    elif 13.9 <= mps < 17.2:
+        return 7
+    elif 17.2 <= mps < 20.8:
+        return 8
+    elif 20.8 <= mps < 24.5:
+        return 9
+    elif 24.5 <= mps < 28.5:
+        return 10
+    elif 28.5 <= mps < 32.7:
+        return 11
+    else:
+        return 12
 
 
 def mbar2inhg(f):
@@ -468,9 +496,9 @@ def wxfinished_owm_onecall():
         if Config.metric:
             temper.setText('%.1f' % (f['temp']) + u'°C')
             temper2.setText('%.1f' % (f['temp']) + u'°C')
-            w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind_speed'])) + 'km/u')
+            w = (Config.LWind + wd + ' ' + '%.1f' % (mps2bft(f['wind_speed'])) + 'bft')
             if 'wind_gust' in f:
-                w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind_gust'])) + 'km/u')
+                w += (Config.Lgusting + '%.1f' % (mps2kph(f['wind_gust'])) + 'km/u')
             feelslike.setText(Config.LFeelslike + '%.1f' % (f['feels_like']) + u'°C')
         else:
             temper.setText('%.1f' % (f['temp']) + u'°F')
@@ -642,9 +670,9 @@ def wxfinished_owm_current():
     if Config.metric:
         temper.setText('%.1f' % (f['main']['temp']) + u'°C')
         temper2.setText('%.1f' % (f['main']['temp']) + u'°C')
-        w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind']['speed'])) + 'km/u')
+        w = (Config.LWind + wd + ' ' + '%.1f' % (mps2bft(f['wind']['speed'])) + 'bft')
         if 'gust' in f['wind']:
-            w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind']['gust'])) + 'km/u')
+            w += (Config.Lgusting + '%.1f' % (mps2kph(f['wind']['gust'])) + 'km/u')
         feelslike.setText(Config.LFeelslike + '%.1f' % (f['main']['feels_like']) + u'°C')
     else:
         temper.setText('%.1f' % (f['main']['temp']) + u'°F')
@@ -935,9 +963,9 @@ def wxfinished_tm_current():
         temper.setText('%.1f' % (f['values']['temperature']) + u'°C')
         temper2.setText('%.1f' % (f['values']['temperature']) + u'°C')
         wind.setText(Config.LWind + wd + ' ' +
-                     '%.1f' % (mph2kph(f['values']['windSpeed'])) + 'km/u' +
+                     '%.1f' % (mps2bft(f['values']['windSpeed'])) + 'bft' +
                      Config.Lgusting +
-                     '%.1f' % (mph2kph(f['values']['windGust'])) + 'km/u')
+                     '%.1f' % (mps2kph(f['values']['windGust'])) + 'km/u')
         feelslike.setText(Config.LFeelslike +
                           '%.1f' % (f['values']['temperatureApparent']) + u'°C')
     else:
