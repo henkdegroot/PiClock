@@ -291,12 +291,12 @@ def tempfinished():
     if tempdata['temp'] == '':
         return
     if Config.metric:
-        s = Config.LInsideTemp + '%.1f' % tempf2tempc(float(tempdata['temp'])) + u'°C'
+        s = Config.LInsideTemp + '%.1f' % (tempdata['temp']) + u'°C'
         if tempdata['temps']:
             if len(tempdata['temps']) > 1:
                 s = ''
                 for tk in tempdata['temps']:
-                    s += ' ' + tk + ': ' + '%.1f' % tempf2tempc(float(tempdata['temps'][tk])) + u'°C'
+                    s += ' ' + tk + ': ' + '%.1f' % (tempdata['temps'][tk]) + u'°C'
     else:
         s = Config.LInsideTemp + tempdata['temp'] + u'°F'
         if tempdata['temps']:
@@ -305,10 +305,6 @@ def tempfinished():
                 for tk in tempdata['temps']:
                     s += ' ' + tk + ': ' + tempdata['temps'][tk] + u'°F'
     temp.setText(s)
-
-
-def tempf2tempc(f):
-    return (f - 32) / 1.8  # temperature degrees Fahrenheit to degrees Celsius
 
 
 def mph2kph(f):
@@ -470,12 +466,12 @@ def wxfinished_owm_onecall():
             wd = bearing(f['wind_deg'])
 
         if Config.metric:
-            temper.setText('%.1f' % (tempf2tempc(f['temp'])) + u'°C')
-            temper2.setText('%.1f' % (tempf2tempc(f['temp'])) + u'°C')
+            temper.setText('%.1f' % (f['temp']) + u'°C')
+            temper2.setText('%.1f' % (f['temp']) + u'°C')
             w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind_speed'])) + 'km/u')
             if 'wind_gust' in f:
                 w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind_gust'])) + 'km/u')
-            feelslike.setText(Config.LFeelslike + '%.1f' % (tempf2tempc(f['feels_like'])) + u'°C')
+            feelslike.setText(Config.LFeelslike + '%.1f' % (f['feels_like']) + u'°C')
         else:
             temper.setText('%.1f' % (f['temp']) + u'°F')
             temper2.setText('%.1f' % (f['temp']) + u'°F')
@@ -531,7 +527,7 @@ def wxfinished_owm_onecall():
             else:
                 if paccum > 0.1:
                     s += Config.LRain + '%.1f' % paccum + 'mm/u '
-            s += '%.0f' % tempf2tempc(f['temp']) + u'°C'
+            s += '%.0f' % (f['temp']) + u'°C'
         else:
             if ptype == 'snow':
                 if paccum > 2.54:
@@ -587,8 +583,8 @@ def wxfinished_owm_onecall():
             else:
                 if paccum > 0.1:
                     s += Config.LRain + '%.1f' % paccum + 'mm '
-            s += '%.0f' % tempf2tempc(f['temp']['max']) + '/' + \
-                 '%.0f' % tempf2tempc(f['temp']['min']) + u'°C'
+            s += '%.0f' % f['temp']['max'] + '/' + \
+                 '%.0f' % f['temp']['min'] + u'°C'
         else:
             if ptype == 'snow':
                 if paccum > 2.54:
@@ -644,12 +640,12 @@ def wxfinished_owm_current():
         wd = bearing(f['wind']['deg'])
 
     if Config.metric:
-        temper.setText('%.1f' % (tempf2tempc(f['main']['temp'])) + u'°C')
-        temper2.setText('%.1f' % (tempf2tempc(f['main']['temp'])) + u'°C')
+        temper.setText('%.1f' % (f['main']['temp']) + u'°C')
+        temper2.setText('%.1f' % (f['main']['temp']) + u'°C')
         w = (Config.LWind + wd + ' ' + '%.1f' % (mph2kph(f['wind']['speed'])) + 'km/u')
         if 'gust' in f['wind']:
             w += (Config.Lgusting + '%.1f' % (mph2kph(f['wind']['gust'])) + 'km/u')
-        feelslike.setText(Config.LFeelslike + '%.1f' % (tempf2tempc(f['main']['feels_like'])) + u'°C')
+        feelslike.setText(Config.LFeelslike + '%.1f' % (f['main']['feels_like']) + u'°C')
     else:
         temper.setText('%.1f' % (f['main']['temp']) + u'°F')
         temper2.setText('%.1f' % (f['main']['temp']) + u'°F')
@@ -731,7 +727,7 @@ def wxfinished_owm_forecast():
             else:
                 if paccum > 0.1:
                     s += Config.LRain + '%.1f' % paccum + 'mm/u '
-            s += '%.0f' % tempf2tempc(f2['temp']) + u'°C'
+            s += '%.0f' % (f2['temp']) + u'°C'
         else:
             if ptype == 'snow':
                 if paccum > 2.54:
@@ -799,8 +795,8 @@ def wxfinished_owm_forecast():
                 s += Config.LSnow + '%.1f' % spaccum + 'mm '
             if rpaccum > 0.1:
                 s += Config.LRain + '%.1f' % rpaccum + 'mm '
-            s += '%.0f' % tempf2tempc(xmaxtemp) + '/' + \
-                 '%.0f' % tempf2tempc(xmintemp) + u'°C'
+            s += '%.0f' % xmaxtemp + '/' + \
+                 '%.0f' % xmintemp + u'°C'
         else:
             if spaccum > 2.54:
                 s += Config.LSnow + '%.1f' % mm2inches(spaccum) + 'in '
@@ -936,14 +932,14 @@ def wxfinished_tm_current():
         wd = bearing(f['values']['windDirection'])
 
     if Config.metric:
-        temper.setText('%.1f' % (tempf2tempc(f['values']['temperature'])) + u'°C')
-        temper2.setText('%.1f' % (tempf2tempc(f['values']['temperature'])) + u'°C')
+        temper.setText('%.1f' % (f['values']['temperature']) + u'°C')
+        temper2.setText('%.1f' % (f['values']['temperature']) + u'°C')
         wind.setText(Config.LWind + wd + ' ' +
                      '%.1f' % (mph2kph(f['values']['windSpeed'])) + 'km/u' +
                      Config.Lgusting +
                      '%.1f' % (mph2kph(f['values']['windGust'])) + 'km/u')
         feelslike.setText(Config.LFeelslike +
-                          '%.1f' % (tempf2tempc(f['values']['temperatureApparent'])) + u'°C')
+                          '%.1f' % (f['values']['temperatureApparent']) + u'°C')
     else:
         temper.setText('%.1f' % (f['values']['temperature']) + u'°F')
         temper2.setText('%.1f' % (f['values']['temperature']) + u'°F')
@@ -1030,7 +1026,7 @@ def wxfinished_tm_hourly():
             else:
                 if paccum > 0.1:
                     s += Config.LRain + '%.1f' % inches2mm(paccum) + 'mm/u '
-            s += '%.0f' % tempf2tempc(f['values']['temperature']) + u'°C'
+            s += '%.0f' % (f['values']['temperature']) + u'°C'
         else:
             if ptype == 2:
                 if paccum > 0.1:
@@ -1129,8 +1125,8 @@ def wxfinished_tm_daily():
                 else:
                     if paccum > 0.1:
                         s += Config.LRain + '%.1f' % inches2mm(paccum) + 'mm/u '
-                s += '%.0f' % tempf2tempc(f['values']['temperatureMax']) + '/' + \
-                     '%.0f' % tempf2tempc(f['values']['temperatureMin']) + u'°C'
+                s += '%.0f' % f['values']['temperatureMax'] + '/' + \
+                     '%.0f' % f['values']['temperatureMin'] + u'°C'
             else:
                 if ptype == 'snow':
                     if paccum > 0.1:
@@ -1311,7 +1307,7 @@ def wxfinished_metar():
         ws = (Config.LWind + wd + ' ' + '%.1f' % (f.wind_speed.value('KMH')) + 'km/u')
         if f.wind_gust:
             ws += (Config.Lgusting + '%.1f' % (f.wind_gust.value('KMH')) + 'km/u')
-        feelslike.setText(Config.LFeelslike + ('%.1f' % (tempf2tempc(feels_like(f))) + u'°C'))
+        feelslike.setText(Config.LFeelslike + ('%.1f' % (feels_like(f)) + u'°C'))
     else:
         temper.setText('%.1f' % (f.temp.value('F')) + u'°F')
         temper2.setText('%.1f' % (f.temp.value('F')) + u'°F')
