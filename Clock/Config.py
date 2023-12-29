@@ -34,7 +34,7 @@ digital = 1  # 1 = Digital Clock, 0 = Analog Clock
 
 # Goes with light blue config (like the default one)
 #digitalcolor = '#50CBEB'
-digitalcolor = '#40A3BD'
+digitalcolor = '#238199'
 #digitalformat = '{0:%I:%M\n%S %p}'  # Format of the digital clock face
 digitalformat = '{0:%H:%M}'  # my version
 digitalsize = 250
@@ -112,7 +112,7 @@ Language = 'NL'
 # locale -a
 # to install locales
 # sudo dpkg-reconfigure locales
-DateLocale = 'nl'
+DateLocale = 'nl_NL.UTF-8'
 
 # Language specific wording
 LPressure = 'Luchtdruk '
