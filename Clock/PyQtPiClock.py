@@ -355,21 +355,35 @@ def phase(f):
 def bearing(f):
     wd = 'N'
     if f > 22.5:
+        wd = 'NNO'
+    if f > 45:
         wd = 'NO'
     if f > 67.5:
+        wd = 'ONO'
+     if f > 90:
         wd = 'O'
-    if f > 112.5:
+   if f > 112.5:
+        wd = 'OZO'
+    if f > 135:
         wd = 'ZO'
     if f > 157.5:
+        wd = 'ZZO'
+    if f > 180:
         wd = 'Z'
     if f > 202.5:
+        wd = 'ZZW'
+    if f > 225:
         wd = 'ZW'
     if f > 247.5:
+        wd = 'WZW'
+    if f > 270:
         wd = 'W'
     if f > 292.5:
+        wd = 'WNW'
+    if f > 315:
         wd = 'NW'
     if f > 337.5:
-        wd = 'N'
+        wd = 'NNW'
     return wd
 
 
