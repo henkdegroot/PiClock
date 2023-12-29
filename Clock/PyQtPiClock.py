@@ -354,35 +354,35 @@ def phase(f):
 
 def bearing(f):
     wd = 'N'
-    if f > 22.5:
+    if f >= 22.5:
         wd = 'NNO'
-    if f > 45:
+    if f >= 45:
         wd = 'NO'
-    if f > 67.5:
+    if f >= 67.5:
         wd = 'ONO'
-    if f > 90:
+    if f >= 90:
         wd = 'O'
-    if f > 112.5:
+    if f >= 112.5:
         wd = 'OZO'
-    if f > 135:
+    if f >= 135:
         wd = 'ZO'
-    if f > 157.5:
+    if f >= 157.5:
         wd = 'ZZO'
-    if f > 180:
+    if f >= 180:
         wd = 'Z'
-    if f > 202.5:
+    if f >= 202.5:
         wd = 'ZZW'
-    if f > 225:
+    if f >= 225:
         wd = 'ZW'
-    if f > 247.5:
+    if f >= 247.5:
         wd = 'WZW'
-    if f > 270:
+    if f >= 270:
         wd = 'W'
-    if f > 292.5:
+    if f >= 292.5:
         wd = 'WNW'
-    if f > 315:
+    if f >= 315:
         wd = 'NW'
-    if f > 337.5:
+    if f >= 337.5:
         wd = 'NNW'
     return wd
 
@@ -1379,7 +1379,12 @@ def getwx_owm():
 
     wxurl += "&lat=" + str(Config.location.lat) + \
              '&lon=' + str(Config.location.lng)
-    wxurl += '&units=imperial&lang=' + Config.Language.lower()
+    if Config.metric:
+        wxurl += '&units=metric'
+    else:
+        wxurl += '&untis=imperial'
+
+    wxurl += '&lang=' + Config.Language.lower()
     wxurl += '&r=' + str(random.random())
 
     if owmonecall:
@@ -1402,7 +1407,12 @@ def getwx_owm():
                 ApiKeys.owmapi
         wxurl += "&lat=" + str(Config.location.lat) + \
                  '&lon=' + str(Config.location.lng)
-        wxurl += '&units=imperial&lang=' + Config.Language.lower()
+        if Config.metric:
+            wxurl += '&units=metric'
+        else:
+            wxurl += '&untis=imperial'
+
+        wxurl += '&lang=' + Config.Language.lower()
         wxurl += '&r=' + str(random.random())
         print('getting OpenWeather current conditions: ' + wxurl)
         r = QUrl(wxurl)
@@ -1421,7 +1431,11 @@ def getwx_tm():
         # current conditions
         wxurl = 'https://api.tomorrow.io/v4/timelines?timesteps=current&apikey=' + ApiKeys.tmapi
         wxurl += '&location=' + str(Config.location.lat) + ',' + str(Config.location.lng)
-        wxurl += '&units=imperial'
+        if Config.metric:
+            wxurl += '&units=metric'
+        else:
+            wxurl += '&untis=imperial'
+
         wxurl += '&fields=temperature,weatherCode,temperatureApparent,humidity,'
         wxurl += 'windSpeed,windDirection,windGust,pressureSeaLevel,precipitationType'
         print('getting Tomorrow.io current conditions: ' + wxurl)
@@ -1433,7 +1447,11 @@ def getwx_tm():
     # hourly forecast
     wxurl2 = 'https://api.tomorrow.io/v4/timelines?timesteps=1h&apikey=' + ApiKeys.tmapi
     wxurl2 += '&location=' + str(Config.location.lat) + ',' + str(Config.location.lng)
-    wxurl2 += '&units=imperial'
+    if Config.metric:
+        wxurl2 += '&units=metric'
+    else:
+        wxurl2 += '&untis=imperial'
+
     wxurl2 += '&fields=temperature,precipitationIntensity,precipitationType,'
     wxurl2 += 'precipitationProbability,weatherCode'
     print('getting Tomorrow.io hourly forecast: ' + wxurl2)
@@ -1445,7 +1463,11 @@ def getwx_tm():
     # daily forecast
     wxurl3 = 'https://api.tomorrow.io/v4/timelines?timesteps=1d&apikey=' + ApiKeys.tmapi
     wxurl3 += '&location=' + str(Config.location.lat) + ',' + str(Config.location.lng)
-    wxurl3 += '&units=imperial'
+    if Config.metric:
+        wxurl3 += '&units=metric'
+    else:
+        wxurl3 += '&untis=imperial'
+
     wxurl3 += '&fields=temperature,precipitationIntensity,precipitationType,'
     wxurl3 += 'precipitationProbability,weatherCode,temperatureMax,temperatureMin'
     print('getting Tomorrow.io daily forecast: ' + wxurl3)
