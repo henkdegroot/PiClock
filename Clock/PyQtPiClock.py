@@ -260,8 +260,8 @@ def tick():
             sup = 'rd'
         if Config.DateLocale != '':
             sup = ''
-        ds = '{0:%A %B} {0.day}<sup>{1}</sup> {0.year}'.format(now, sup)
-        ds2 = '{0:%a %b} {0.day}<sup>{1}</sup> {0.year}'.format(now, sup)
+        ds = '{0:%B %A %B} <sup>{1}</sup>{0.day} {0.year}'.format(now, sup)
+        ds2 = '{0:%b %a} <sup>{1}</sup>{0.day} {0.year}'.format(now, sup)
         datex.setText(ds)
         datex2.setText(ds2)
         dt = datetime.datetime.now(tz=tzlocal.get_localzone())
