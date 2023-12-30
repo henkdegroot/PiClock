@@ -2393,8 +2393,8 @@ else:
     dcolor = QColor(Config.digitalcolor).darker(0).name()
     lcolor = QColor(Config.digitalcolor).lighter(120).name()
     clockface.setStyleSheet(
-        '#clockface { background-color: transparent; font-family:sans-serif;' +
-        ' font-weight: light; color: ' +
+        '#clockface { background-color: transparent; font-family: sans-serif;' +
+        ' font-weight: bold; color: ' +
         lcolor +
         '; background-color: transparent; font-size: ' +
         str(int(Config.digitalsize * xscale)) +
