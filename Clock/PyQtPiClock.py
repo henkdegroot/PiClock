@@ -2523,7 +2523,7 @@ wxdesc2.setStyleSheet('#wxdesc2 { background-color: transparent; color: ' +
                       Config.fontattr +
                       '}')
 wxdesc2.setAlignment(Qt.AlignLeft | Qt.AlignTop)
-wxdesc2.setGeometry(int(400 * xscale), int(800 * yscale), int(400 * xscale), 100)
+wxdesc2.setGeometry(int(400 * xscale), int(800 * yscale), int(500 * xscale), 100)
 
 ypos += 25
 temper = QtWidgets.QLabel(foreGround)
