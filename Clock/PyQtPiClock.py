@@ -427,11 +427,11 @@ def wxfinished_owm_onecall():
     global wxreply, hasMetar
     global wxicon, temper, wxdesc, press, humidity
     global wind, feelslike, wdate, forecast
-    global wxicon2, temper2, wxdesc2, attribution
+    global wxicon2, temper2, wxdesc2, attribution, attribution2
     global owmonecall
 
-    attribution.setText('OpenWeatherMap.org')
-    attribution2.setText('OpenWeatherMap.org')
+    #attribution.setText('OpenWeatherMap.org')
+    #attribution2.setText('OpenWeatherMap.org')
 
     wxstr = str(wxreply.readAll(), 'utf-8')
 
@@ -487,14 +487,16 @@ def wxfinished_owm_onecall():
                 w += (Config.Lgusting + '%.1f' % (f['wind_gust']) + 'mph')
             feelslike.setText(Config.LFeelslike + '%.1f' % (f['feels_like']) + u'°F')
 
-        if Config.pressure_mbar:
-            press.setText(Config.LPressure + '%.1f' % f['pressure'] + 'mbar')
-        else:
-            press.setText(Config.LPressure + '%.2f' % mbar2inhg(f['pressure']) + 'inHg')
+#        if Config.pressure_mbar:
+#            press.setText(Config.LPressure + '%.1f' % f['pressure'] + 'mbar')
+#        else:
+#            press.setText(Config.LPressure + '%.2f' % mbar2inhg(f['pressure']) + 'inHg')
 
         wind.setText(w)
         humidity.setText(Config.LHumidity + '%.0f%%' % (f['humidity']))
-        wdate.setText('{0:%H:%M %Z}'.format(dt))
+#        wdate.setText('{0:%H:%M %Z}'.format(dt))
+        attribution.setText('{0:%H:%M %Z}'.format(dt))
+        attribution2.setText('{0:%H:%M %Z}'.format(dt))
 
     for i in range(0, 3):
         f = wxdata['hourly'][i * 3 + 2]
@@ -610,7 +612,7 @@ def wxfinished_owm_current():
     global wxreplyc
     global wxicon, temper, wxdesc, press, humidity
     global wind, feelslike, wdate
-    global wxicon2, temper2, wxdesc2
+    global wxicon2, temper2, wxdesc2, attribution, attribution2
 
     wxstr = str(wxreplyc.readAll(), 'utf-8')
 
@@ -661,15 +663,17 @@ def wxfinished_owm_current():
             w += (Config.Lgusting + '%.1f' % (f['wind']['gust']) + 'mph')
         feelslike.setText(Config.LFeelslike + '%.1f' % (f['main']['feels_like']) + u'°F')
 
-    if Config.pressure_mbar:
-        press.setText(Config.LPressure + '%.1f' % f['main']['pressure'] + 'mbar')
-    else:
-        press.setText(Config.LPressure + '%.2f' % mbar2inhg(f['main']['pressure']) + 'inHg')
+#    if Config.pressure_mbar:
+#        press.setText(Config.LPressure + '%.1f' % f['main']['pressure'] + 'mbar')
+#    else:
+#        press.setText(Config.LPressure + '%.2f' % mbar2inhg(f['main']['pressure']) + 'inHg')
 
     wind.setText(w)
     humidity.setText(Config.LHumidity + '%.0f%%' % (f['main']['humidity']))
-    wdate.setText('{0:%H:%M %Z}'.format(dt))
+#    wdate.setText('{0:%H:%M %Z}'.format(dt))
 
+    attribution.setText('{0:%H:%M %Z}'.format(dt))
+    attribution2.setText('{0:%H:%M %Z}'.format(dt))
 
 def wxfinished_owm_forecast():
     global wxreplyf, forecast
@@ -898,7 +902,7 @@ def wxfinished_tm_current():
     global wxreply
     global wxicon, temper, wxdesc, press, humidity
     global wind, feelslike, wdate
-    global wxicon2, temper2, wxdesc2
+    global wxicon2, temper2, wxdesc2, atttribution, attribution2
     global daytime
 
     wxstr = str(wxreply.readAll(), 'utf-8')
@@ -958,13 +962,15 @@ def wxfinished_tm_current():
         feelslike.setText(Config.LFeelslike +
                           '%.1f' % (f['values']['temperatureApparent']) + u'°F')
 
-    if Config.pressure_mbar:
-        press.setText(Config.LPressure + '%.1f' % inhg2mbar(f['values']['pressureSeaLevel']) + 'mbar')
-    else:
-        press.setText(Config.LPressure + '%.2f' % (f['values']['pressureSeaLevel']) + 'inHg')
+#    if Config.pressure_mbar:
+#        press.setText(Config.LPressure + '%.1f' % inhg2mbar(f['values']['pressureSeaLevel']) + 'mbar')
+#    else:
+#        press.setText(Config.LPressure + '%.2f' % (f['values']['pressureSeaLevel']) + 'inHg')
 
     humidity.setText(Config.LHumidity + '%.0f%%' % (f['values']['humidity']))
-    wdate.setText('{0:%H:%M %Z}'.format(dt))
+#    wdate.setText('{0:%H:%M %Z}'.format(dt))
+    attribution.setText('{0:%H:%M %Z}'.format(dt))
+    attribution2.setText('{0:%H:%M %Z}'.format(dt))
 
 
 def wxfinished_tm_hourly():
@@ -1236,7 +1242,7 @@ def wxfinished_metar():
     global metarreply
     global wxicon, temper, wxdesc, press, humidity
     global wind, feelslike, wdate
-    global wxicon2, temper2, wxdesc2
+    global wxicon2, temper2, wxdesc2, attribution, attribution2
     global daytime
 
     wxstr = str(metarreply.readAll(), 'utf-8')
@@ -1323,11 +1329,11 @@ def wxfinished_metar():
             ws += (Config.Lgusting + '%.1f' % (f.wind_gust.value('MPH')) + 'mph')
         feelslike.setText(Config.LFeelslike + '%.1f' % (feels_like(f)) + u'°F')
 
-    if f.press:
-        if Config.pressure_mbar:
-            press.setText(Config.LPressure + '%.1f' % f.press.value('MB') + 'mbar')
-        else:
-            press.setText(Config.LPressure + '%.2f' % f.press.value('IN') + 'inHg')
+#    if f.press:
+#        if Config.pressure_mbar:
+#            press.setText(Config.LPressure + '%.1f' % f.press.value('MB') + 'mbar')
+#        else:
+#            press.setText(Config.LPressure + '%.2f' % f.press.value('IN') + 'inHg')
 
     t = f.temp.value('C')
     d = f.dewpt.value('C')
@@ -1335,7 +1341,9 @@ def wxfinished_metar():
                  math.exp((17.625 * t) / (243.04 + t)))
     humidity.setText(Config.LHumidity + '%.0f%%' % h)
     wind.setText(ws)
-    wdate.setText('{0:%H:%M %Z} {1}'.format(dt, Config.METAR))
+#    wdate.setText('{0:%H:%M %Z} {1}'.format(dt, Config.METAR))
+    attribution.setText('{0:%H:%M %Z} {1}'.format(dt, Config.METAR))
+    attribution2.setText('{0:%H:%M %Z} {1}'.format(dt, Config.METAR))
 
 
 def getallwx():
@@ -1852,7 +1860,7 @@ class Radar(QtWidgets.QLabel):
         ii3.fill(Qt.transparent)
         painter2 = QPainter()
         painter2.begin(ii3)
-        timestamp = '{0:%H:%M} RainViewer.com'.format(datetime.datetime.fromtimestamp(self.getTime))
+        timestamp = '{0:%H:%M}'.format(datetime.datetime.fromtimestamp(self.getTime))
         painter2.setPen(QColor(63, 63, 63, 255))
         painter2.setFont(QFont("Arial", pointSize=8, weight=75))
         painter2.setRenderHint(QPainter.TextAntialiasing)
@@ -2386,7 +2394,7 @@ else:
     clockface.setObjectName('clockface')
     clockrect = QtCore.QRect(
         int(width / 2 - height * .4),
-        int(height * .45 - height * .4),
+        int(height * .45 - height * .4 + 20),
         int(height * .8),
         int(height * .8))
     clockface.setGeometry(clockrect)
@@ -2467,7 +2475,7 @@ attribution.setStyleSheet('#attribution { ' +
                           ' background-color: transparent; color: ' +
                           Config.textcolor +
                           '; font-size: ' +
-                          str(int(12 * xscale)) +
+                          str(int(17 * xscale * Config.fontmult)) +
                           'px; ' +
                           Config.fontattr +
                           '}')
@@ -2485,12 +2493,12 @@ attribution2.setStyleSheet('#attribution2 { ' +
                            'background-color: transparent; color: ' +
                            Config.textcolor +
                            '; font-size: ' +
-                           str(int(12 * xscale * Config.fontmult)) +
+                           str(int(17 * xscale * Config.fontmult)) +
                            'px; ' +
                            Config.fontattr +
                            '}')
 attribution2.setAlignment(Qt.AlignTop)
-attribution2.setGeometry(int(6 * xscale), int(880 * yscale), int(130 * xscale), 100)
+attribution2.setGeometry(int(6 * xscale), int(880 * yscale)-3, int(130 * xscale), 100)
 
 ypos += 130
 wxdesc = QtWidgets.QLabel(foreGround)

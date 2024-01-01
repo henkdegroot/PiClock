@@ -17,7 +17,7 @@ noaastream = ''
 background = 'images/clockbackground-chris.png'
 squares1 = 'images/squares1-henk.png'
 squares2 = 'images/squares2-henk.png'
-icons = 'icons-lightblue'
+icons = 'icons-nl'
 textcolor = '#bef'
 clockface = 'images/clockface3.png'
 hourhand = 'images/hourhand.png'
@@ -34,10 +34,10 @@ digital = 1  # 1 = Digital Clock, 0 = Analog Clock
 
 # Goes with light blue config (like the default one)
 #digitalcolor = '#50CBEB'
-digitalcolor = '#238199'
+digitalcolor = '#006787'
 #digitalformat = '{0:%I:%M\n%S %p}'  # Format of the digital clock face
 digitalformat = '{0:%H:%M}'  # my version
-digitalsize = 230
+digitalsize = 225
 
 # The above example shows in this way:
 #  https://github.com/n0bel/PiClock/blob/master/Documentation/Digital%20Clock%20v1.jpg
